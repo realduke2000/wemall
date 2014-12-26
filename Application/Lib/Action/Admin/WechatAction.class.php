@@ -35,7 +35,7 @@ class WechatAction extends Action {
 								'Title' => $replay[$i]["title"],
 								'Description' => $replay[$i]["description"],
 								'PicUrl' => $appUrl . '/Public/Uploads/'.$replay[$i]["picurl"],
-								'Url' => $replay[$i]["url"].'?uid=' . $weObj->getRevFrom ()
+								'Url' => $replay[$i]["url"].'&uid=' . $weObj->getRevFrom ()
 						);
 					}else{
 						$weObj->text ( $replay[$i]["title"] )->reply ();
@@ -61,13 +61,15 @@ class WechatAction extends Action {
 								'Title' => $news[$i]["title"],
 								'Description' => $news[$i]["description"],
 								'PicUrl' => $appUrl . '/Public/Uploads/'.$news[$i]["picurl"],
-								'Url' => $news[$i]["url"].'?uid=' . $weObj->getRevFrom ()
+								'Url' => $news[$i]["url"].'&uid=' . $weObj->getRevFrom ()
 							);
 						}
 
 						$weObj->getRev ()->news ( $newsArr )->reply ();
 					}
 					
+				}elseif ($eventype['event'] == "subscribe") {
+    				$weObj->text ( "欢迎您关注wemall商城！" )->reply ();
 				}
 				exit ();
 				break;
