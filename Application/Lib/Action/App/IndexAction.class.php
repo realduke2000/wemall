@@ -103,8 +103,14 @@ class IndexAction extends Action {
 		
 		$alipay = M ( "Alipay" )->find ();
 		if ($pay == 1 && $alipay) {
-			echo 'http://' . $_SERVER ['SERVER_NAME'] . __ROOT__ . '/api/wapalipay/alipayapi.php?WIDseller_email=' . $alipay ['alipayname'] . '&WIDout_trade_no=' . $orderid . '&WIDsubject=' . $orderid . '&WIDtotal_fee=' . $totalprice;
+			echo 'http://' . $_SERVER ['SERVER_NAME'] . __ROOT__ . '/pi/wapalipay/alipayapi.php?WIDseller_email=' . $alipay ['alipayname'] . '&WIDout_trade_no=' . $orderid . '&WIDsubject=' . $orderid . '&WIDtotal_fee=' . $totalprice;
 		}
+
+        $config = M("Info")->find();
+        if ($pay == 2) {
+            echo 'http://' . $_SERVER ['SERVER_NAME'] . __ROOT__ . '/Api/wxPay/js_api_call.php?body=' . $config ['name'] . '&orderid=' . $orderid . '&totalprice=' . floatval($totalprice) * 100 . '&url=' . U("App/Index/index") . '&uid=' . $uid;
+        }
+
 	}
 	
 	// app start

@@ -90,7 +90,7 @@ switch ($step) {
             $session = '<span class="correct_span error_span">√</span> 不支持';
             $err++;
         }
-        $folder = array('/', 'Application', 'Core', 'Install', 'Public', 'api');
+        $folder = array('/', 'Application', 'Core', 'Install', 'Public', 'Api');
         include_once ("./templates/s2.php");
         exit();
 

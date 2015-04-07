@@ -1,4 +1,82 @@
-<include file="Public:header"/>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<title>WeMall后台管理</title>
+
+		<meta name="description" content="wemall 微商城 微信商城 www.inuoer.com inuoer.com" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+
+		<link href="__PUBLIC__/Plugin/style/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__PUBLIC__/Plugin/style/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="__PUBLIC__/Plugin/style/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="__PUBLIC__/Plugin/style/css/ace.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/Plugin/style/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/Plugin/style/css/ace-skins.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="__PUBLIC__/Plugin/style/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- ace settings handler -->
+
+		<script src="__PUBLIC__/Plugin/style/js/ace-extra.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="__PUBLIC__/Plugin/style/js/html5shiv.js"></script>
+		<script src="__PUBLIC__/Plugin/style/js/respond.min.js"></script>
+		<![endif]-->
+		
+		<!-- javascript footer -->
+				<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='__PUBLIC__/Plugin/style/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script type="text/javascript">
+		 	window.jQuery || document.write("<script src='__PUBLIC__/Plugin/style/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='__PUBLIC__/Plugin/style/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="__PUBLIC__/Plugin/style/js/bootstrap.min.js"></script>
+		<script src="__PUBLIC__/Plugin/style/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!--[if lte IE 8]>
+		  <script src="__PUBLIC__/Plugin/style/js/excanvas.min.js"></script>
+		<![endif]-->
+
+		<script src="__PUBLIC__/Plugin/style/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="__PUBLIC__/Plugin/style/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="__PUBLIC__/Plugin/style/js/jquery.slimscroll.min.js"></script>
+		<script src="__PUBLIC__/Plugin/style/js/jquery.easy-pie-chart.min.js"></script>
+		<script src="__PUBLIC__/Plugin/style/js/jquery.sparkline.min.js"></script>
+		<script src="__PUBLIC__/Plugin/style/js/flot/jquery.flot.min.js"></script>
+		<script src="__PUBLIC__/Plugin/style/js/flot/jquery.flot.pie.min.js"></script>
+		<script src="__PUBLIC__/Plugin/style/js/flot/jquery.flot.resize.min.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="__PUBLIC__/Plugin/style/js/ace-elements.min.js"></script>
+		<script src="__PUBLIC__/Plugin/style/js/ace.min.js"></script>
+	</head>
+	<body>
 <div class="col-sm-10 widget-container-span" style="width: 100%">
 	<div class="widget-box transparent">
 		<div class="widget-header">
@@ -17,7 +95,7 @@
 			<div class="widget-main padding-12 no-padding-left no-padding-right">
 				<div class="tab-content padding-4">
 					<div id="home1" class="tab-pane in active">
-						<form class="form-horizontal J_ajaxForm" id="myform" action="{:U('Admin/Weixin/setconfig')}" method="post">
+						<form class="form-horizontal J_ajaxForm" id="myform" action="<?php echo U('Admin/Weixin/setconfig');?>" method="post">
 							<div class="tabbable">
 								<div class="tab-content">
 									<div class="tab-pane active">
@@ -26,40 +104,40 @@
 												<tr>
 													<td>公众号:</td>
 													<td><input type="text" class="input" name="num"
-														value="{$config.num}" id="name"></td>
+														value="<?php echo ($config["num"]); ?>" id="name"></td>
 												</tr>
 												<tr>
 													<td>url:</td>
 
-													<td style="padding:2px 0px;">{$url}
+													<td style="padding:2px 0px;"><?php echo ($url); ?>
 													</td>
 												</tr>
 												<tr>
 													<td>token:</td>
 
 													<td><input type="text" class="input" name="token"
-																id="url_input" value="{$config.token}" autocomplete="off">
+																id="url_input" value="<?php echo ($config["token"]); ?>" autocomplete="off">
 													</td>
 												</tr>
 												<tr>
 													<td>appid:</td>
 
 													<td><input type="text" class="input" name="appid"
-																id="url_input" value="{$config.appid}" autocomplete="off">
+																id="url_input" value="<?php echo ($config["appid"]); ?>" autocomplete="off">
 													</td>
 												</tr>
 												<tr>
 													<td>appsecret:</td>
 
 													<td><input type="text" class="input" name="appsecret"
-																id="url_input" value="{$config.appsecret}" autocomplete="off">
+																id="url_input" value="<?php echo ($config["appsecret"]); ?>" autocomplete="off">
 													</td>
 												</tr>
 												<tr>
 													<td>encodingaeskey:</td>
 
 													<td><input type="text" class="input" name="encodingaeskey"
-																id="url_input" value="{$config.encodingaeskey}" autocomplete="off">
+																id="url_input" value="<?php echo ($config["encodingaeskey"]); ?>" autocomplete="off">
 													</td>
 												</tr>
 											</tbody>
@@ -98,29 +176,27 @@
 										</thead>
 
 										<tbody>
-											<volist name="menu" id="menu">
-											<tr>
+											<?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i;?><tr>
 												<td class="center"><label> <input
 														type="checkbox" class="ace"> <span class="lbl"></span>
 												</label></td>
-												<th width="80">{$menu.listorder}</th>
-												<th width="100">{$menu.id}</th>
-												<th>{$menu.name}</th>
-												<th width="80">{$menu.type}</th>
-												<th width="200">{$menu.url}</th>
-												<th>{$menu.key}</th>
+												<th width="80"><?php echo ($menu["listorder"]); ?></th>
+												<th width="100"><?php echo ($menu["id"]); ?></th>
+												<th><?php echo ($menu["name"]); ?></th>
+												<th width="80"><?php echo ($menu["type"]); ?></th>
+												<th width="200"><?php echo ($menu["url"]); ?></th>
+												<th><?php echo ($menu["key"]); ?></th>
 												<td><a
 													href="javascript:void(0);" onclick="reWxmenu(this)"
 													class="btn btn-white btn-sm">修改</a><a
 													class="J_ajax_del btn btn-white btn-sm"
-													href="{:U('Admin/Weixin/delmenu',array('id'=>$menu['id']))}">删除</a></td>
-											</tr>
-											</volist>
+													href="<?php echo U('Admin/Weixin/delmenu',array('id'=>$menu['id']));?>">删除</a></td>
+											</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 										</tbody>
 									</table>
 									<div class="form-actions">
 										<a
-											href="{:U('Admin/Wechat/createMenu')}"
+											href="<?php echo U('Admin/Wechat/createMenu');?>"
 											class="btn btn-primary btn_submit mr10" type="submit">重新生成菜单</a>
 									</div>
 								</div>
@@ -129,7 +205,7 @@
 					</div>
 					
 					<div id="home3" class="tab-pane in">
-						<form class="form-horizontal J_ajaxForm" id="myform" action="{:U('Admin/Weixin/addmenu')}" method="post">
+						<form class="form-horizontal J_ajaxForm" id="myform" action="<?php echo U('Admin/Weixin/addmenu');?>" method="post">
 							<div class="tabbable">
 								<div class="tab-content">
 									<div class="tab-pane active">
@@ -207,34 +283,32 @@
 										</thead>
 
 										<tbody>
-											<volist name="message" id="message">
-											<tr>
+											<?php if(is_array($message)): $i = 0; $__LIST__ = $message;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$message): $mod = ($i % 2 );++$i;?><tr>
 												<td class="center"><label> <input
 														type="checkbox" class="ace"> <span class="lbl"></span>
 												</label></td>
-												<th>{$message.id}</th>
-												<th>{$message.type}</th>
-												<th>{$message.title}</th>
-												<th>{$message.description}</th>
+												<th><?php echo ($message["id"]); ?></th>
+												<th><?php echo ($message["type"]); ?></th>
+												<th><?php echo ($message["title"]); ?></th>
+												<th><?php echo ($message["description"]); ?></th>
 												<th>
 												<div class="btn-group">
 														<a class="btn btn-white btn-sm" data-toggle="dropdown">
 															预览
 														</a>
 														<div class="dropdown-menu" role="menu">
-															<center><img style="padding: 0px 0px 6px 0px;max-width:200px;max-height:200px;" src="__PUBLIC__/Uploads/{$message.picurl}"/></center>
+															<center><img style="padding: 0px 0px 6px 0px;max-width:200px;max-height:200px;" src="__PUBLIC__/Uploads/<?php echo ($message["picurl"]); ?>"/></center>
 														</div>
 													</div>
 												</th>
-												<th>{$message.url}</th>
-												<th>{$message.key}</th>
+												<th><?php echo ($message["url"]); ?></th>
+												<th><?php echo ($message["key"]); ?></th>
 												<td><a
 													href="javascript:void(0);" onclick="reWxmessage(this)"
 													class="btn btn-white btn-sm">修改</a><a
 													class="J_ajax_del btn btn-white btn-sm"
-													href="{:U('Admin/Weixin/delmessage',array('id'=>$message['id']))}">删除</a></td>
-											</tr>
-											</volist>
+													href="<?php echo U('Admin/Weixin/delmessage',array('id'=>$message['id']));?>">删除</a></td>
+											</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 										</tbody>
 									</table>
 								</div>
@@ -242,7 +316,7 @@
 						</div>
 					</div>
 					<div id="home5" class="tab-pane in">
-						<form class="form-horizontal J_ajaxForm" enctype="multipart/form-data" id="myform" action="{:U('Admin/Weixin/addmessage')}" method="post">
+						<form class="form-horizontal J_ajaxForm" enctype="multipart/form-data" id="myform" action="<?php echo U('Admin/Weixin/addmessage');?>" method="post">
 							<div class="tabbable">
 								<div class="tab-content">
 									<div class="tab-pane active">

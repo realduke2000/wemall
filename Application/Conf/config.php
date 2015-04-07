@@ -7,7 +7,7 @@ $arr1 =  array(
 // 	'URL_ROUTER_ON'   => true,
 // 	'SHOW_PAGE_TRACE' => true,
 	'URL_MODEL' => 0,
-	'APP_GROUP_LIST' => 'Admin,App,Api', //项目分组设定
+	'APP_GROUP_LIST' => 'Admin,App', //项目分组设定
 	'DEFAULT_GROUP'  => 'Admin', //默认分组
 );
 

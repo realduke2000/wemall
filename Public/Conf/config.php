@@ -5,7 +5,7 @@
 	define('DB_HOST', 'localhost');
 	define('DB_USER', 'root');
 	define('DB_PWD', 'root');
-	define('DB_NAME', 'aaa');
+	define('DB_NAME', 'open');
 	define('DB_PREFIX', 'wemall_');
 	
 	$conn = @mysql_connect(DB_HOST, DB_USER, DB_PWD) or die('数据库链接失败：'.mysql_error());

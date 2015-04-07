@@ -204,7 +204,7 @@ function submitOrder () {
 			$('#totalPrice').html(0);
 			
 			if (response) {
-				window.open(response);
+                window.location.href = response;
 			}
 			
 			$.ajax({

@@ -22,7 +22,7 @@ class WeixinAction extends PublicAction {
 		$this->success ( "配置成功!" );
 	}
 	public function addmenu() {
-		if ($_POST ["menu_id"]) {
+		if ($_POST ["id"]) {
 			$_POST ["status"] = '1';
 			$result = M ( "Wxmenu" )->save ( $_POST );
 			if ($result) {
@@ -30,7 +30,7 @@ class WeixinAction extends PublicAction {
 			}
 		} else {
 			$_POST ["status"] = '1';
-			unset ( $_POST ["menu_id"] );
+			unset ( $_POST ["id"] );
 			$result = M ( "Wxmenu" )->add ( $_POST );
 			if ($result) {
 				$this->success ( "添加菜单成功!" );
@@ -40,7 +40,7 @@ class WeixinAction extends PublicAction {
 	public function delmenu() {
 		$id = $_GET ["id"];
 		$result = M ( "Wxmenu" )->where ( array (
-				"menu_id" => $id 
+				"id" => $id 
 		) )->delete ();
 		if ($result) {
 			$this->success ( "删除菜单成功!" );

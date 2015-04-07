@@ -1,7 +1,7 @@
-<html>
+<?php if (!defined('THINK_PATH')) exit();?><html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>{$info.name}</title>
+<title><?php echo ($info["name"]); ?></title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="../Public/Static/css/foods.css" rel="stylesheet"
@@ -19,11 +19,9 @@ var rooturl = '__ROOT__';
 		<div class="menu_header">
 			<div class="menu_topbar">
 				<div id="menu" class="sort sort_on">
-					<a href="">{$info.name}</a>
+					<a href=""><?php echo ($info["name"]); ?></a>
 					<ul>
-						<volist name="menu" id="menuid">
-							<li><a href="javascript:showProducts('{$menuid.id}')">{$menuid.name}</a></li>
-						</volist>
+						<?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menuid): $mod = ($i % 2 );++$i;?><li><a href="javascript:showProducts('<?php echo ($menuid["id"]); ?>')"><?php echo ($menuid["name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 						<li><a href="javascript:showAll()">所有商品</a></li>
 					</ul>
 				</div>
@@ -36,7 +34,7 @@ var rooturl = '__ROOT__';
 			<div class="hot">
 				<strong>公告</strong>
 			</div>
-			<div class="content">{$info.notification}</div>
+			<div class="content"><?php echo ($info["notification"]); ?></div>
 		</div>
 
 		<section class="menu">
@@ -44,21 +42,19 @@ var rooturl = '__ROOT__';
 				<dl>
 					<dt>菜单</dt>
 					<div class="ccbg">
-						<volist name="goods" id="goodsvo">
-						<dd menu="{$goodsvo.menu_id}">
+						<?php if(is_array($goods)): $i = 0; $__LIST__ = $goods;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goodsvo): $mod = ($i % 2 );++$i;?><dd menu="<?php echo ($goodsvo["menu_id"]); ?>">
 							<div class="tupian">
-								<img src="__PUBLIC__/Uploads/{$goodsvo.image}"
-									onclick="showDetail('{$goodsvo.id}');"> <a
-									href="javascript:doProduct('{$goodsvo.id}','{$goodsvo.name}','{$goodsvo.price}');" class="add"><p
-										class="dish2">{$goodsvo.name}</p>
-									<p class="price2">{$goodsvo.price}元/份</p>
+								<img src="__PUBLIC__/Uploads/<?php echo ($goodsvo["image"]); ?>"
+									onclick="showDetail('<?php echo ($goodsvo["id"]); ?>');"> <a
+									href="javascript:doProduct('<?php echo ($goodsvo["id"]); ?>','<?php echo ($goodsvo["name"]); ?>','<?php echo ($goodsvo["price"]); ?>');" class="add"><p
+										class="dish2"><?php echo ($goodsvo["name"]); ?></p>
+									<p class="price2"><?php echo ($goodsvo["price"]); ?>元/份</p>
 									<p>
-										<del>{$goodsvo.old_price}元/份</del>
+										<del><?php echo ($goodsvo["old_price"]); ?>元/份</del>
 									</p></a>
 							</div>
-							<a href="javascript:doProduct('{$goodsvo.id}','{$goodsvo.name}','{$goodsvo.price}');" id="{$goodsvo.id}" class="reduce" style="display: block;"><b class="ico_reduce">减一份</b></a>
-						</dd>
-						</volist>
+							<a href="javascript:doProduct('<?php echo ($goodsvo["id"]); ?>','<?php echo ($goodsvo["name"]); ?>','<?php echo ($goodsvo["price"]); ?>');" id="<?php echo ($goodsvo["id"]); ?>" class="reduce" style="display: block;"><b class="ico_reduce">减一份</b></a>
+						</dd><?php endforeach; endif; else: echo "" ;endif; ?>
 					</div>
 				</dl>
 			</section>
@@ -119,7 +115,7 @@ var rooturl = '__ROOT__';
 										<td width="80px"><label for="name" class="ui-input-text">联系人：</label></td>
 										<td>
 											<div class="ui-input-text">
-												<input id="name" name="name" placeholder="" value="{$users.username}" type="text"
+												<input id="name" name="name" placeholder="" value="<?php echo ($users["username"]); ?>" type="text"
 													class="ui-input-text">
 											</div></td>
 									</tr>
@@ -128,7 +124,7 @@ var rooturl = '__ROOT__';
 										<td width="80px"><label for="phone" class="ui-input-text">联系电话：</label></td>
 										<td>
 											<div class="ui-input-text">
-												<input id="phone" name="phone" placeholder="" value="{$users.phone}" type="tel"
+												<input id="phone" name="phone" placeholder="" value="<?php echo ($users["phone"]); ?>" type="tel"
 													class="ui-input-text">
 											</div>
 										</td>
@@ -138,7 +134,7 @@ var rooturl = '__ROOT__';
 										<td colspan="2"><select name="pay" class="selectstyle"
 											id="select1">
 												<option value="0">货到付款</option>
-												<if condition="$alipay eq 1"><option value="1">支付宝在线支付</option></if>
+												<?php if($alipay == 1): ?><option value="1">支付宝在线支付</option><?php endif; ?>
 												<option value="2">微信支付</option>
 										</select></td>
 									</tr>
@@ -146,7 +142,7 @@ var rooturl = '__ROOT__';
 										<td width="80px"><label for="address"
 											class="ui-input-text">地址：</label></td>
 										<td><textarea id="address" name="address" placeholder=""
-												value="" class="ui-input-text">{$users.address}</textarea>
+												value="" class="ui-input-text"><?php echo ($users["address"]); ?></textarea>
 										</td>
 									</tr>
 									<tr>

@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="cn">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-		<title>WeMall后台管理</title>
+		<title>WeMal后台管理</title>
 
 		<meta name="description" content="wemall 微商城 微信商城 www.inuoer.com inuoer.com" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -77,3 +77,9 @@
 		<script src="__PUBLIC__/Plugin/style/js/ace.min.js"></script>
 	</head>
 	<body>
+<script type="text/javascript" language="javascript"> 
+	function iframeResize(iframe) {
+      iframe.height = $(window).height();
+   }
+</script>
+<iframe src="http://www.inuoer.com/" style="width: 100%;" frameborder="0" onload="iframeResize(this);"  scrolling="yes"></iframe>

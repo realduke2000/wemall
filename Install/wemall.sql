@@ -193,22 +193,18 @@ CREATE TABLE IF NOT EXISTS `dbprefix_user` (
 CREATE TABLE IF NOT EXISTS `dbprefix_wxconfig` (
 `id` int(5) NOT NULL,
   `num` text NOT NULL,
-  `ini_num` text NOT NULL,
   `token` text NOT NULL,
   `appid` text NOT NULL,
   `appsecret` text NOT NULL,
-  `encodingaeskey` text NOT NULL,
-  `partnerid` text NOT NULL,
-  `partnerkey` text NOT NULL,
-  `paysignkey` text NOT NULL
+  `encodingaeskey` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `dbprefix_wxconfig`
 --
 
-INSERT INTO `dbprefix_wxconfig` (`id`, `num`, `ini_num`, `token`, `appid`, `appsecret`, `encodingaeskey`, `partnerid`, `partnerkey`, `paysignkey`) VALUES
-(1, 'wemall', 'wemall', 'wemall', '', '', '', '', '', '');
+INSERT INTO `dbprefix_wxconfig` (`id`, `num` , `token`, `appid`, `appsecret`, `encodingaeskey`) VALUES
+(1, 'wemall', 'wemall', '', '', '');
 -- --------------------------------------------------------
 
 --
@@ -216,11 +212,11 @@ INSERT INTO `dbprefix_wxconfig` (`id`, `num`, `ini_num`, `token`, `appid`, `apps
 --
 
 CREATE TABLE IF NOT EXISTS `dbprefix_wxmenu` (
-`menu_id` int(5) NOT NULL,
-  `menu_type` varchar(10) DEFAULT NULL,
-  `menu_name` varchar(10) NOT NULL,
-  `event_key` varchar(200) NOT NULL,
-  `view_url` varchar(300) NOT NULL,
+  `id` int(5) NOT NULL,
+  `type` varchar(10) DEFAULT NULL,
+  `name` varchar(10) NOT NULL,
+  `key` varchar(200) NOT NULL,
+  `url` varchar(300) NOT NULL,
   `pid` int(5) NOT NULL DEFAULT '0',
   `listorder` varchar(5) NOT NULL,
   `status` tinyint(1) NOT NULL
@@ -230,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `dbprefix_wxmenu` (
 -- 转存表中的数据 `dbprefix_wxmenu`
 --
 
-INSERT INTO `dbprefix_wxmenu` (`menu_id`, `menu_type`, `menu_name`, `event_key`, `view_url`, `pid`, `listorder`, `status`) VALUES
+INSERT INTO `dbprefix_wxmenu` (`id`, `type`, `name`, `key`, `url`, `pid`, `listorder`, `status`) VALUES
 (1, 'click', '进入商城', 'BUY', '', 0, '1', 1),
 (2, 'view', '关于我们', '', 'http://m.baidu.com', 0, '3', 1);
 
@@ -343,7 +339,7 @@ ALTER TABLE `dbprefix_wxconfig`
 -- Indexes for table `dbprefix_wxmenu`
 --
 ALTER TABLE `dbprefix_wxmenu`
- ADD PRIMARY KEY (`menu_id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `dbprefix_wxmessage`
@@ -414,7 +410,7 @@ MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `dbprefix_wxmenu`
 --
 ALTER TABLE `dbprefix_wxmenu`
-MODIFY `menu_id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `dbprefix_wxmessage`
 --

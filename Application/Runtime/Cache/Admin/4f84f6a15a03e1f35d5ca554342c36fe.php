@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="cn">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
@@ -77,3 +77,74 @@
 		<script src="__PUBLIC__/Plugin/style/js/ace.min.js"></script>
 	</head>
 	<body>
+<div class="col-sm-12 widget-container-span">
+	<div class="widget-box transparent">
+		<div class="widget-body">
+			<div class="widget-main padding-12 no-padding-left no-padding-right">
+				<div class="tab-content padding-4">
+					<div id="home1" class="tab-pane in active">
+						<div class="row">
+							<div class="col-xs-12 no-padding-right">
+								<div class="table-responsive">
+									<table id="sample-table-1"
+										class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<th class="center"><label> <input
+														type="checkbox" class="ace"> <span class="lbl"></span>
+												</label></th>
+												<th>ID</th>
+												<th>用户名</th>
+												<th>联系方式</th>
+												<th>送货地址</th>
+												<th>加入时间</th>
+											</tr>
+										</thead>
+
+										<tbody>
+										<?php if(is_array($result)): $i = 0; $__LIST__ = $result;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$result): $mod = ($i % 2 );++$i;?><tr>
+												<td class="center"><label> <input
+														type="checkbox" class="ace"> <span class="lbl"></span>
+												</label></td>
+												
+												<td><?php echo ($result["id"]); ?></td>
+												<td><?php echo ($result["username"]); ?></td>
+												<td><?php echo ($result["phone"]); ?></td>
+												<td><?php echo ($result["address"]); ?></td>
+												<td><?php echo ($result["time"]); ?></td>
+											</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+										</tbody>
+									</table>
+									<div class="pagination" style="margin:0px;">
+									    <?php echo ($page); ?>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			function addSubmenu(o) {
+				var subid = $(o).parent().prev().prev().html();
+				$('select[name="parent"]').val(subid);
+				$('input[name="addmenu"]').val('0');
+				$('input[name="name"]').val('');
+				
+				$('#myTab li').eq(1).find('a').click();
+			}
+			function reSubmenu(o){
+				var name = $(o).parent().prev().html().replace(/&nbsp;/g,'').replace('├─','');
+				var pid = $(o).parent().prev().prev().attr('parent');
+				var subid = $(o).parent().prev().prev().html();
+				$('select[name="parent"]').val(pid);
+				$('input[name="name"]').val(name);
+				$('input[name="addmenu"]').val(subid);
+				$('#myTab li').eq(1).find('a').click();
+			}
+		</script>
+	</div>
+</div>

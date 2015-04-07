@@ -152,16 +152,16 @@ class ApiAction extends Action {
 		$data ["id"] = $id;
 		$data ["order_status"] = 1;
 		$result = M ( "Order" )->save ( $data );
-		if ($reuslt) {
-			return $reuslt;
+		if ($result) {
+			return $result;
 		}
 	}
 	public function payComplete($id) {
 		$data ["id"] = $id;
 		$data ["pay_status"] = 1;
 		$result = M ( "Order" )->save ( $data );
-		if ($reuslt) {
-			return $reuslt;
+		if ($result) {
+			return $result;
 		}
 	}
 	public function getuser($uid) {
