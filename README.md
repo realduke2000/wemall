@@ -23,6 +23,7 @@ wemall微信商城地址是http://www.inuoer.com
 
     借助公司的CDN骨干网，全网高速访问您的微信商城，畅享飞速体验。
 　　
+
 使用说明：
 
 1.使用微信支付需要参考Api/wxPay/使用说明.txt 配置Api/wxPay/WxPayPubHelper/WxPay.pub.config.php
@@ -30,6 +31,7 @@ wemall微信商城地址是http://www.inuoer.com
 2.系统安装成功并且接入微信后，配置微信管理->自定义回复 http://www.xxx.com/index.php?g=App&m=Index&a=index中www.xxx.com配置成您的域名地址。
 
 3.开源版本不适合商业化，商业化请选择我们的商业化版本。
+
 
 
 体验请搜索官方微信号:iwemall
