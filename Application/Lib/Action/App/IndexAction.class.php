@@ -1,6 +1,11 @@
 <?php
 // 本类由系统自动生成，仅供测试用途
 class IndexAction extends Action {
+	function _initialize() {
+		$_GET = $this->_get();
+		$_POST = $this->_post();
+	}
+
 	public function index() {
 		if ($_GET ['uid']) {
 			$info = R ( "Api/Api/gettheme" );

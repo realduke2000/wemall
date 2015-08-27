@@ -4,6 +4,8 @@ class PublicAction extends Action {
 		if (! $_SESSION ["wadmin"]) {
 			$this->redirect ( "Admin/Login/index" );
 		}
+		$_GET = $this->_get();
+		$_POST = $this->_post();
 	}
 	public function upload() {
 		import ( 'ORG.Net.UploadFile' );
