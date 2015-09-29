@@ -12,6 +12,13 @@
 <script type="text/javascript">
 var appurl = '__APP__';
 var rooturl = '__ROOT__';
+function keypress_digit_only(e)
+{
+	if (e.which >=58 || e.which < 48)
+	{
+		e.preventDefault();
+	}
+}
 </script>
 </head>
 <body class="sanckbg mode_webapp">
@@ -47,16 +54,32 @@ var rooturl = '__ROOT__';
 						<volist name="goods" id="goodsvo">
 						<dd menu="{$goodsvo.menu_id}">
 							<div class="tupian">
+								<!--
 								<img src="__PUBLIC__/Uploads/{$goodsvo.image}"
 									onclick="showDetail('{$goodsvo.id}');"> <a
-									href="javascript:doProduct('{$goodsvo.id}','{$goodsvo.name}','{$goodsvo.price}');" class="add"><p
-										class="dish2">{$goodsvo.name}</p>
+									href="javascript:doProduct('{$goodsvo.id}','{$goodsvo.name}','{$goodsvo.price}');" class="add">
+								-->
+								<img src="__PUBLIC__/Uploads/{$goodsvo.image}"
+									onclick="showDetail('{$goodsvo.id}');">
+
+									<a href="javascript:increaseProduct('{$goodsvo.id}','{$goodsvo.name}','{$goodsvo.price}');" class="increase1">+</a>
+									<input type="tel" class="count1" id="menu_product_count_{$goodsvo.id}"
+									value="0"
+									onchange="setProduct('{$goodsvo.id}','{$goodsvo.name}','{$goodsvo.price}');"
+									onkeypress="keypress_digit_only(event)"></input>
+									<a href="javascript:reduceProduct('{$goodsvo.id}','{$goodsvo.name}','{$goodsvo.price}');" class="reduce1">-</a>
+
+									<p class="dish2">{$goodsvo.name}</p>
 									<p class="price2">{$goodsvo.price}元/份</p>
 									<p>
 										<del>{$goodsvo.old_price}元/份</del>
 									</p></a>
 							</div>
+							<!--
 							<a href="javascript:doProduct('{$goodsvo.id}','{$goodsvo.name}','{$goodsvo.price}');" id="{$goodsvo.id}" class="reduce" style="display: block;"><b class="ico_reduce">减一份</b></a>
+						-->
+
+
 						</dd>
 						</volist>
 					</div>
@@ -92,7 +115,7 @@ var rooturl = '__ROOT__';
 				<ul id="ullist">
 					<dt>已选购的</dt>
 				</ul>
-				
+
 				<ul id="cartinfo">
 					<dt>购物车总计</dt>
 					<li class="ccbg2" id="emptyLii">已选：<span id="totalNum">0</span>份　共计：￥<span id="totalPrice">0</span>元</li>
@@ -139,7 +162,7 @@ var rooturl = '__ROOT__';
 											id="select1">
 												<option value="0">货到付款</option>
 												<if condition="$alipay eq 1"><option value="1">支付宝在线支付</option></if>
-												<option value="2">微信支付</option>
+												<!-- <option value="2">微信支付</option> -->
 										</select></td>
 									</tr>
 									<tr>
