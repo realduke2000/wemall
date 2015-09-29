@@ -1,3 +1,8 @@
+HISTORY
+======
+Be able to increase reduce product quntities in purchase menu.
+
+
 wemall+App
 ======
 版本：3.3
@@ -37,7 +42,3 @@ wemall微信商城地址是http://www.inuoer.com
 体验请搜索官方微信号:iwemall
 如需更多帮助请加QQ群:115303179（已满）150157872
 
-
-LOG HISTORY
-======
-Be able to increase reduce product quntities in purchase menu.
