@@ -176,55 +176,6 @@ function doProduct (id , name , price) {
 	}
 }
 
-function addProduct(id , name , price)
-{
-	var wemallId = 'wemall_'+id;
-
-	if ($('#'+wemallId).length == 0)
-	{
-		var cartMenuN = parseFloat($('#cartN2').html())+1;
-		$('#totalNum').html( cartMenuN );
-		$('#cartN2').html( cartMenuN );
-
-		var totalPrice = parseFloat($('#totalPrice').html())+ parseFloat(price);
-		$('#totalPrice').html( totalPrice.toFixed(2) );
-
-		var html = '<li class="ccbg2" id="'+wemallId+'">'
-								+ '<div class="orderdish">'
-									+ '<span name="title">'+name+'</span>'
-									+ '<span class="price" id="v_0">'+price+'</span>'
-									+ '<span class="price">元</span>'
-								+ '</div>'
-								+ '<div class="orderchange">'
-									+ '<a href=javascript:addProductN("'+wemallId+'_'+price+'") class="increase">'
-										+	'<b class="ico_increase">加一份</b>'
-									+ '</a>'
-									+ '<span class="count" id="num_1_499">1</span>'
-									+ '<a href=javascript:reduceProductN("'+wemallId+'_'+price+'") class="reduce">'
-										+ '<b class="ico_reduce">减一份</b>'
-									+ '</a>'
-								+'</div>'
-								+'</li>';
-		$('#menu_product_count_' + id).val('1');
-		$('#ullist').append(html);
-		return;
-	}
-	else
-	{
-		addProductN(wemallId+'_'+price);
-	}
-}
-
-function removeProduct(id , name , price)
-{
-	var wemallId = 'wemall_'+id;
-	if ($('#'+wemallId).length == 0)
-	{
-		return;
-	}
-	reduceProductN(wemallId+'_'+price);
-}
-
 function increaseProductInMenu(id)
 {
 	var curr_count = parseFloat($('#menu_product_count_'+id).val());
